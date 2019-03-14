@@ -74,6 +74,8 @@ namespace AbpDemoThree.Web.Host.Startup
                     In = "header",
                     Type = "apiKey"
                 });
+                options.IncludeXmlComments(getXmlFilePathByFileName("AbpDemoThree.Application"));
+                options.IncludeXmlComments(getXmlFilePathByFileName("AbpDemoThree.Core"));
             });
 
             // Configure Abp and Dependency Injection
@@ -123,6 +125,12 @@ namespace AbpDemoThree.Web.Host.Startup
                 options.IndexStream = () => Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream("AbpDemoThree.Web.Host.wwwroot.swagger.ui.index.html");
             }); // URL: /swagger
+        }
+
+        private string getXmlFilePathByFileName(string fileName)
+        {
+            var basePath = System.AppDomain.CurrentDomain.BaseDirectory;
+            return basePath + fileName + ".xml";
         }
     }
 }
