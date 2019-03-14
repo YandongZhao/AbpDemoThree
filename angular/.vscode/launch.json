@@ -11,6 +11,13 @@
             "url": "http://localhost:4200",
             "sourceMaps": true,
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "启动并打开chrome",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
